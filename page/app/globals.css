@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Updated color scheme to match logo gradient: cyan → blue → green */
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary: Cyan from logo */
+    --primary: 189 94% 43%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary: Blue from logo */
+    --secondary: 207 90% 54%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Accent: Green from logo */
+    --accent: 142 76% 36%;
+    --accent-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 189 94% 43%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Updated gradient to match logo colors */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-green-400;
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+/* Enhanced glassmorphism and card effects with better shadows and depth */
+.card-hover {
+  @apply transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 hover:-translate-y-2 backdrop-blur-sm;
+}
+
+.glass-card {
+  @apply bg-card/40 backdrop-blur-xl border border-cyan-500/20 shadow-xl shadow-cyan-500/10;
+}
+
+.glow-effect {
+  @apply shadow-lg shadow-cyan-500/50 hover:shadow-cyan-400/70 transition-shadow duration-300;
+}
+
+/* Added glassmorphism effect for cards */
+/*.glass-card {*/
+/*  @apply bg-card/40 backdrop-blur-xl border border-white/10 shadow-xl;*/
+/*}*/
+
+/* Added glow effect for interactive elements */
+/*.glow-effect {*/
+/*  @apply shadow-lg shadow-cyan-500/50 hover:shadow-cyan-400/70 transition-shadow duration-300;*/
+/*}*/
+
+/* Enhanced keyframe animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 40px rgba(34, 211, 238, 0.6);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Added scanning line animation for ANPR demo */
+@keyframes scan-line {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-scan {
+  animation: scan-line 2s ease-in-out infinite;
+}
+
+/* Added particle burst animation */
+@keyframes particle-burst {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-particle-burst {
+  animation: particle-burst 1s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Enhanced mesh gradient with logo colors */
+.mesh-gradient {
+  background: radial-gradient(at 27% 37%, hsla(189, 94%, 43%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 97% 21%, hsla(207, 90%, 54%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, hsla(142, 76%, 36%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, hsla(189, 94%, 43%, 0.15) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, hsla(207, 90%, 54%, 0.15) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, hsla(142, 76%, 36%, 0.15) 0px, transparent 50%),
+    radial-gradient(at 79% 53%, hsla(189, 94%, 43%, 0.15) 0px, transparent 50%);
+}
+
+/* Added mesh gradient background */
+/*.mesh-gradient {*/
+/*  background: radial-gradient(at 27% 37%, hsla(189, 94%, 43%, 0.15) 0px, transparent 50%),*/
+/*    radial-gradient(at 97% 21%, hsla(207, 90%, 54%, 0.15) 0px, transparent 50%),*/
+/*    radial-gradient(at 52% 99%, hsla(142, 76%, 36%, 0.15) 0px, transparent 50%),*/
+/*    radial-gradient(at 10% 29%, hsla(189, 94%, 43%, 0.1) 0px, transparent 50%),*/
+/*    radial-gradient(at 97% 96%, hsla(207, 90%, 54%, 0.1) 0px, transparent 50%),*/
+/*    radial-gradient(at 33% 50%, hsla(142, 76%, 36%, 0.1) 0px, transparent 50%),*/
+/*    radial-gradient(at 79% 53%, hsla(189, 94%, 43%, 0.1) 0px, transparent 50%);*/
+/*}*/
+
+/* Added 3D card effect */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg) scale(1.05);
+}
