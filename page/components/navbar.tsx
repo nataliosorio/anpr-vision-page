@@ -57,19 +57,19 @@ export function Navbar() {
                 </Link>
               </motion.div>
             ))}
-            <Button
+            {/* <Button
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
             >
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+            </Button> */}
           </div>
 
           {/* Mobile Navigation Toggle */}
           <div className="md:hidden flex items-center">
-            <Button
+            {/* <Button
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -77,7 +77,7 @@ export function Navbar() {
               className="mr-2"
             >
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+            </Button> */}
             <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Toggle menu">
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>

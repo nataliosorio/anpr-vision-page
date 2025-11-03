@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code, Database, Layers, Zap, Shield, Cloud } from "lucide-react"
-import { motion } from "framer-motion"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Code, Database, Layers, Zap, Shield, Cloud } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function Technology() {
   const techStack = [
@@ -42,51 +42,63 @@ export function Technology() {
       items: ["Cámaras IP (RTSP)", "APIs RESTful", "Notificaciones en tiempo real"],
       color: "from-teal-500 to-cyan-600",
     },
-  ]
+  ];
 
   return (
-    <div className="container mx-auto px-4">
+    <section className="relative py-24 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden">
+      {/* Fondo animado */}
+      <div className="absolute inset-0 mesh-gradient opacity-30 pointer-events-none" />
+
+      {/* Título principal */}
       <motion.div
-        className="text-center mb-16"
-        initial={{ opacity: 0, y: 20 }}
+        className="text-center mb-16 relative z-10"
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Tecnología <span className="gradient-text">Avanzada</span>
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+          Tecnología{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-green-400 animate-gradient">
+            Avanzada
+          </span>
         </h2>
-        <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-          ANPR-VISION está construido con tecnologías modernas y robustas para garantizar rendimiento, seguridad y
-          escalabilidad.
+        <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          ANPR-VISION está construido con tecnologías modernas y robustas para garantizar
+          rendimiento, seguridad y escalabilidad.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {/* Grid de tecnologías */}
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 max-w-7xl mx-auto">
         {techStack.map((tech, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card className="card-hover h-full">
-              <CardHeader>
+            <Card className="group relative h-full rounded-2xl bg-gradient-to-br from-slate-800/40 to-slate-900/40 border border-cyan-500/20 hover:border-cyan-400/40 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-500 backdrop-blur-sm overflow-hidden">
+              {/* Glow dinámico */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-cyan-500/10 to-blue-600/10 blur-2xl transition-opacity duration-700" />
+
+              <CardHeader className="relative z-10">
                 <motion.div
-                  className={`w-12 h-12 rounded-lg bg-gradient-to-br ${tech.color} flex items-center justify-center mb-4`}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${tech.color} flex items-center justify-center mb-4 shadow-lg shadow-cyan-500/30`}
+                  whileHover={{ scale: 1.15, rotate: 8 }}
+                  transition={{ type: "spring", stiffness: 250 }}
                 >
-                  <tech.icon className="h-6 w-6 text-white" />
+                  <tech.icon className="h-7 w-7 text-white" />
                 </motion.div>
-                <CardTitle>{tech.title}</CardTitle>
+                <CardTitle className="text-lg font-semibold">{tech.title}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
+
+              <CardContent className="relative z-10">
+                <ul className="space-y-2 text-sm text-gray-300 leading-relaxed">
                   {tech.items.map((item, i) => (
-                    <li key={i} className="text-sm text-foreground/80 flex items-start">
-                      <span className="text-primary mr-2">•</span>
+                    <li key={i} className="flex items-start">
+                      <span className="text-cyan-400 mr-2">•</span>
                       {item}
                     </li>
                   ))}
@@ -97,19 +109,23 @@ export function Technology() {
         ))}
       </div>
 
+      {/* Bloques finales */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        initial={{ opacity: 0, y: 20 }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10 max-w-7xl mx-auto"
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <Card className="bg-gradient-to-br from-green-900/20 to-green-800/10 border-green-500/20">
+        {/* Requisitos No Funcionales */}
+        <Card className="rounded-2xl bg-gradient-to-br from-emerald-900/20 to-emerald-800/10 border border-emerald-500/20 shadow-lg shadow-emerald-500/10 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Requisitos No Funcionales</CardTitle>
+            <CardTitle className="text-xl font-semibold text-emerald-300">
+              Requisitos No Funcionales
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <ul className="space-y-2 text-sm text-foreground/80">
+            <ul className="space-y-2 text-sm text-gray-300">
               <li>
                 • <strong>Disponibilidad:</strong> 95% durante horario operativo
               </li>
@@ -117,7 +133,7 @@ export function Technology() {
                 • <strong>Rendimiento:</strong> Respuesta &lt; 3 segundos
               </li>
               <li>
-                • <strong>Escalabilidad:</strong> Soporte para múltiples parqueaderos
+                • <strong>Escalabilidad:</strong> Soporte multi-parqueadero
               </li>
               <li>
                 • <strong>Seguridad:</strong> Encriptación y control por roles
@@ -132,32 +148,40 @@ export function Technology() {
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-teal-900/20 to-teal-800/10 border-teal-500/20">
+        {/* Equipo de Desarrollo */}
+        <Card className="rounded-2xl bg-gradient-to-br from-cyan-900/20 to-blue-900/10 border border-cyan-500/20 shadow-lg shadow-cyan-500/10 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Equipo de Desarrollo</CardTitle>
+            <CardTitle className="text-xl font-semibold text-cyan-300">
+              Equipo de Desarrollo
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4 text-sm text-foreground/80">
+            <div className="space-y-4 text-sm text-gray-300">
               <div>
-                <p className="font-medium text-primary">Karol Natalia Osorio Poveda</p>
+                <p className="font-medium text-cyan-400">
+                  Karol Natalia Osorio Poveda
+                </p>
                 <p className="text-xs">Tecnóloga en Análisis y Desarrollo de Software</p>
               </div>
               <div>
-                <p className="font-medium text-primary">Yerson Cuellar Rubiano</p>
+                <p className="font-medium text-cyan-400">Yerson Cuellar Rubiano</p>
                 <p className="text-xs">Tecnólogo en Análisis y Desarrollo de Software</p>
               </div>
               <div>
-                <p className="font-medium text-primary">Anibal Alvarado</p>
+                <p className="font-medium text-cyan-400">Aníbal Alvarado Andrade</p>
                 <p className="text-xs">Tecnólogo en Análisis y Desarrollo de Software</p>
               </div>
-              <div className="pt-4 border-t border-border">
-                <p className="font-medium">Servicio Nacional de Aprendizaje (SENA)</p>
-                <p className="text-xs">Julio 2025</p>
+
+              <div className="pt-4 border-t border-cyan-500/20">
+                <p className="font-medium text-white">
+                  Servicio Nacional de Aprendizaje (SENA)
+                </p>
+                <p className="text-xs text-gray-400">Julio 2025</p>
               </div>
             </div>
           </CardContent>
         </Card>
       </motion.div>
-    </div>
-  )
+    </section>
+  );
 }

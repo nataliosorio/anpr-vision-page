@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Camera, Cpu, Shield, Zap, Clock, BarChart3 } from "lucide-react"
-import { motion } from "framer-motion"
+import { Card, CardContent } from "@/components/ui/card";
+import { Camera, Cpu, Shield, Zap, Clock, BarChart3 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function Introduction() {
   const features = [
@@ -15,88 +15,109 @@ export function Introduction() {
     {
       icon: Zap,
       title: "Procesamiento Rápido",
-      description: "Captura y procesamiento de matrículas en tiempo real para un acceso fluido y sin demoras.",
+      description:
+        "Captura y procesamiento de matrículas en tiempo real para un acceso fluido y sin demoras.",
     },
     {
       icon: Shield,
       title: "Seguridad Mejorada",
-      description: "Control de acceso automatizado con listas negras y registro completo de entradas y salidas.",
+      description:
+        "Control de acceso automatizado con listas negras y registro completo de entradas y salidas.",
     },
     {
       icon: Clock,
       title: "Gestión de Tiempo",
-      description: "Cálculo automático de permanencia y tarifas según tipo de vehículo y horario.",
+      description:
+        "Cálculo automático de permanencia y tarifas según tipo de vehículo y horario.",
     },
     {
       icon: BarChart3,
       title: "Reportes Detallados",
-      description: "Análisis y estadísticas en tiempo real sobre ocupación, ingresos y patrones de uso.",
+      description:
+        "Análisis y estadísticas en tiempo real sobre ocupación, ingresos y patrones de uso.",
     },
     {
       icon: Cpu,
       title: "Arquitectura Escalable",
-      description: "Sistema modular basado en microservicios, preparado para crecer con tu negocio.",
+      description:
+        "Sistema modular basado en microservicios, preparado para crecer con tu negocio.",
     },
-  ]
+  ];
 
   return (
-    <div className="container mx-auto px-4">
+    <section
+      id="introduccion"
+      className="relative py-24 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white"
+    >
+      {/* Fondo con malla sutil */}
+      <div className="absolute inset-0 mesh-gradient opacity-30 pointer-events-none" />
+
+      {/* Encabezado */}
       <motion.div
-        className="text-center mb-16"
-        initial={{ opacity: 0, y: 20 }}
+        className="text-center mb-16 relative z-10"
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
           ¿Qué es <span className="gradient-text">ANPR-VISION</span>?
         </h2>
-        <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-          ANPR-VISION es un sistema inteligente de gestión de parqueaderos que utiliza reconocimiento automático de
-          matrículas (ANPR) mediante tecnología OCR para automatizar y optimizar el control de acceso vehicular.
+        <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          ANPR-VISION es un sistema inteligente de gestión de parqueaderos que
+          utiliza reconocimiento automático de matrículas (ANPR) mediante
+          tecnología OCR para automatizar y optimizar el control de acceso
+          vehicular.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {/* Tarjetas */}
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
         {features.map((feature, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
           >
-            <Card className="card-hover h-full bg-gradient-to-br from-green-900/20 to-green-800/10 border-green-500/20">
+            <Card className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 border border-cyan-500/20 hover:border-cyan-400/40 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-500 rounded-2xl backdrop-blur-sm card-3d">
               <CardContent className="p-6">
-                <motion.div
-                  className="flex items-center gap-3 mb-3"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <div className="p-2 bg-primary/10 rounded-lg">
-                    <feature.icon className="h-6 w-6 text-primary" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 bg-cyan-500/10 rounded-lg">
+                    <feature.icon className="h-6 w-6 text-cyan-400" />
                   </div>
-                  <h4 className="font-medium text-lg">{feature.title}</h4>
-                </motion.div>
-                <p className="text-sm text-foreground/80">{feature.description}</p>
+                  <h4 className="font-semibold text-lg text-white">
+                    {feature.title}
+                  </h4>
+                </div>
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  {feature.description}
+                </p>
               </CardContent>
             </Card>
           </motion.div>
         ))}
       </div>
 
+      {/* Alcance del sistema */}
       <motion.div
-        className="bg-gradient-to-r from-green-900/20 to-teal-900/20 rounded-lg border border-green-500/20 p-8"
+        className="relative z-10 bg-gradient-to-br from-slate-800/40 to-slate-900/40 rounded-2xl border border-cyan-500/20 p-10 shadow-lg shadow-cyan-500/5 backdrop-blur-sm"
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h3 className="text-2xl font-semibold mb-4 text-center">Alcance del Sistema</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-foreground/80">
+        <h3 className="text-2xl font-bold mb-8 text-center text-white">
+          Alcance del Sistema
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-gray-300">
           <div>
-            <h4 className="font-medium text-primary mb-3">Funcionalidades Principales</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-semibold text-cyan-400 mb-3">
+              Funcionalidades Principales
+            </h4>
+            <ul className="space-y-2 text-sm leading-relaxed">
               <li>• Captura automática de placas vehiculares</li>
               <li>• Registro de entradas y salidas</li>
               <li>• Cálculo automático de tarifas</li>
@@ -105,22 +126,28 @@ export function Introduction() {
               <li>• Sistema de alertas y notificaciones</li>
             </ul>
           </div>
+
           <div>
-            <h4 className="font-medium text-primary mb-3">Usuarios del Sistema</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-semibold text-cyan-400 mb-3">
+              Usuarios del Sistema
+            </h4>
+            <ul className="space-y-2 text-sm leading-relaxed">
               <li>
-                • <strong>Administrador:</strong> Control total del sistema, configuración de tarifas y reportes
+                • <strong>Administrador:</strong> Control total del sistema,
+                configuración de tarifas y reportes.
               </li>
               <li>
-                • <strong>Trabajador:</strong> Gestión operativa, validación de alertas y atención al cliente
+                • <strong>Trabajador:</strong> Gestión operativa, validación de
+                alertas y atención al cliente.
               </li>
               <li>
-                • <strong>Usuario Final:</strong> Consulta de historial, pagos y estado de membresía
+                • <strong>Usuario Final:</strong> Consulta de historial, pagos y
+                estado de membresía.
               </li>
             </ul>
           </div>
         </div>
       </motion.div>
-    </div>
-  )
+    </section>
+  );
 }

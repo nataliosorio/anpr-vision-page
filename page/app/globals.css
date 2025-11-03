@@ -191,3 +191,21 @@
 .card-3d:hover {
   transform: rotateY(5deg) rotateX(5deg) scale(1.05);
 }
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+.mesh-gradient {
+  background: radial-gradient(circle at 20% 30%, #00b4d8 0%, transparent 60%),
+              radial-gradient(circle at 80% 70%, #0077b6 0%, transparent 60%);
+  opacity: 0.25;
+  filter: blur(60px);
+  animation: pulse 10s infinite ease-in-out;
+}

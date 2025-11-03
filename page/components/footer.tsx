@@ -1,89 +1,97 @@
-import { Camera } from "lucide-react"
-import Link from "next/link"
+"use client";
+
+import { Camera } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-background border-t border-border py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-1">
+    <footer className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-black border-t border-cyan-500/20 py-16 text-white overflow-hidden">
+      {/* Efecto decorativo de gradiente difuso */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(0,200,255,0.08),transparent_70%)] pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 border-b border-cyan-500/10 pb-10">
+          {/* Columna 1: Marca */}
+          <div>
             <div className="flex items-center gap-2 mb-4">
-              <Camera className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold gradient-text">ANPR-VISION</span>
+              <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 shadow-md shadow-cyan-500/30">
+                <Camera className="h-5 w-5 text-white" />
+              </div>
+              <span className="text-lg font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+                ANPR-VISION
+              </span>
             </div>
-            <p className="text-foreground/70 text-sm">
-              Sistema inteligente de reconocimiento automático de matrículas para la gestión eficiente de parqueaderos.
+            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
+              Sistema inteligente de reconocimiento automático de matrículas para
+              la gestión eficiente de parqueaderos.
             </p>
           </div>
 
+          {/* Columna 2: Secciones */}
           <div>
-            <h3 className="font-semibold mb-4">Secciones</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="#inicio" className="text-foreground/70 hover:text-primary transition-colors text-sm">
-                  Inicio
-                </Link>
-              </li>
-              <li>
-                <Link href="#introduccion" className="text-foreground/70 hover:text-primary transition-colors text-sm">
-                  Introducción
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#funcionalidades"
-                  className="text-foreground/70 hover:text-primary transition-colors text-sm"
-                >
-                  Funcionalidades
-                </Link>
-              </li>
-              <li>
-                <Link href="#como-funciona" className="text-foreground/70 hover:text-primary transition-colors text-sm">
-                  Cómo Funciona
-                </Link>
-              </li>
-              <li>
-                <Link href="#beneficios" className="text-foreground/70 hover:text-primary transition-colors text-sm">
-                  Beneficios
-                </Link>
-              </li>
-              <li>
-                <Link href="#tecnologia" className="text-foreground/70 hover:text-primary transition-colors text-sm">
-                  Tecnología
-                </Link>
-              </li>
+            <h3 className="font-semibold text-cyan-400 mb-4 uppercase tracking-wide text-sm">
+              Secciones
+            </h3>
+            <ul className="space-y-2 text-sm text-gray-400">
+              {[
+                ["Inicio", "#inicio"],
+                ["Introducción", "#introduccion"],
+                ["Funcionalidades", "#funcionalidades"],
+                ["Cómo Funciona", "#como-funciona"],
+                ["Beneficios", "#beneficios"],
+                ["Tecnología", "#tecnologia"],
+              ].map(([label, href]) => (
+                <li key={label}>
+                  <Link
+                    href={href}
+                    className="hover:text-cyan-300 transition-colors duration-200"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Columna 3: Tecnologías */}
           <div>
-            <h3 className="font-semibold mb-4">Tecnologías</h3>
-            <ul className="space-y-2">
-              <li className="text-foreground/70 text-sm">C# / .NET Core</li>
-              <li className="text-foreground/70 text-sm">Entity Framework</li>
-              <li className="text-foreground/70 text-sm">SQL Server</li>
-              <li className="text-foreground/70 text-sm">OpenCV & Tesseract</li>
+            <h3 className="font-semibold text-cyan-400 mb-4 uppercase tracking-wide text-sm">
+              Tecnologías
+            </h3>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>C# / .NET Core</li>
+              <li>Entity Framework</li>
+              <li>SQL Server</li>
+              <li>OpenCV & Tesseract</li>
             </ul>
           </div>
 
+          {/* Columna 4: Proyecto */}
           <div>
-            <h3 className="font-semibold mb-4">Proyecto</h3>
-            <ul className="space-y-2">
-              <li className="text-foreground/70 text-sm">SENA - Tecnología ADSO</li>
-              <li className="text-foreground/70 text-sm">Julio 2025</li>
-              <li className="text-foreground/70 text-sm">Equipo de Desarrollo</li>
+            <h3 className="font-semibold text-cyan-400 mb-4 uppercase tracking-wide text-sm">
+              Proyecto
+            </h3>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>SENA – Tecnología ADSO</li>
+              <li>Julio 2025</li>
+              <li>Equipo de Desarrollo</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border text-center text-sm text-foreground/60">
-          <p>© {currentYear} ANPR-VISION. Todos los derechos reservados.</p>
-          <p className="mt-2">
-            Sistema de Reconocimiento Automático de Matrículas - Gestión Inteligente de Parqueaderos
+        {/* Créditos */}
+        <div className="pt-8 text-center text-sm text-gray-500 space-y-2">
+          <p className="tracking-wide">
+            © {currentYear} <span className="text-cyan-400 font-medium">ANPR-VISION</span>. Todos los derechos
+            reservados.
+          </p>
+          <p className="text-gray-400 text-xs">
+            Sistema de Reconocimiento Automático de Matrículas — Gestión Inteligente de Parqueaderos
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
