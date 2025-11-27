@@ -4,7 +4,7 @@ import { Introduction } from "@/components/introduction"
 import { Features } from "@/components/features"
 import { HowItWorks } from "@/components/how-it-works"
 import { Benefits } from "@/components/benefits"
-import { Technology } from "@/components/technology"
+// import { Technology } from "@/components/technology"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -27,9 +27,9 @@ export default function Home() {
         <section id="beneficios" className="section-padding bg-muted">
           <Benefits />
         </section>
-        <section id="tecnologia" className="section-padding">
+        {/* <section id="tecnologia" className="section-padding">
           <Technology />
-        </section>
+        </section> */}
       </div>
       <Footer />
     </main>

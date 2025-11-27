@@ -30,7 +30,7 @@ export function Navbar() {
     { name: "Funcionalidades", href: "#funcionalidades" },
     { name: "Cómo Funciona", href: "#como-funciona" },
     { name: "Beneficios", href: "#beneficios" },
-    { name: "Tecnología", href: "#tecnologia" },
+    // { name: "Tecnología", href: "#tecnologia" },
   ]
 
   return (

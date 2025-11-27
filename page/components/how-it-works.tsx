@@ -125,7 +125,7 @@ export function HowItWorks() {
       </div>
 
       {/* Arquitectura del sistema */}
-      <motion.div
+      {/* <motion.div
         className="relative z-10 mt-20 p-10 rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-slate-800/40 to-slate-900/40 shadow-lg shadow-cyan-500/10 backdrop-blur-sm"
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -165,7 +165,7 @@ export function HowItWorks() {
             </p>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }
