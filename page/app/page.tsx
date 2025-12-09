@@ -4,6 +4,7 @@ import { Introduction } from "@/components/introduction"
 import { Features } from "@/components/features"
 import { HowItWorks } from "@/components/how-it-works"
 import { Benefits } from "@/components/benefits"
+import { DownloadApp } from "@/components/download-app"
 // import { Technology } from "@/components/technology"
 import { Footer } from "@/components/footer"
 
@@ -26,6 +27,9 @@ export default function Home() {
         </section>
         <section id="beneficios" className="section-padding bg-muted">
           <Benefits />
+        </section>
+        <section id="descargar-app" className="section-padding">
+          <DownloadApp />
         </section>
         {/* <section id="tecnologia" className="section-padding">
           <Technology />
