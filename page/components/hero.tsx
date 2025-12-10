@@ -49,9 +49,9 @@ export function Hero() {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-cyan-500 to-blue-700 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/40 text-white font-semibold px-8 py-3 rounded-xl transition-all"
-                onClick={() => window.open("http://localhost:4200/", "_blank")}
+                onClick={() => window.open("https://3.13.208.252/", "_blank")}
               >
-                Comenzar
+                Iniciar Sesión
               </Button>
             </motion.div>
 
